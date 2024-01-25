@@ -2,12 +2,9 @@
 LLM4ISR is a  simple yet effective
 paradigm for intent-aware session recommendaton motivated by the advanced reasoning capability
 of large language models (LLMs). Specifically, we first create an
-initial prompt to instruct LLMs to predict the next interacted item
-by inferring varying user intents reflected in a session. Then, an
-effective optimization mechanism is proposed to automatically op-
-timize prompts with an iterative self-reflection. Finally, it efficiently
-selects the optimal prompt by leveraging the robust generalizability
-of LLMs across diverse domains. 
+initial prompt to instruct LLMs to predict the next items
+by inferring varying user intents reflected in a session. Then, we propose
+an effective optimization mechanism to automatically optimize prompts with an iterative self-reflection. Finally, we leverage the robust generalizability of LLMs across diverse domains to selects the optimal prompt. 
 
 ## Installtion
 Install all dependencies via:
@@ -85,7 +82,7 @@ python test.py --dataset='dataset name' --model='model name' --seed='value of th
 ```
 
 ### Cross-Domain Baseline
-We have selected [UniSRec](https://github.com/RUCAIBox/UniSRec) as our baseline for cross-domain. For setting up UniSRec, please refer to the [UniSRec](https://github.com/RUCAIBox/UniSRec) repo for detailed instructions on installing the necessary dependencies.
+We have selected [UniSRec](https://github.com/RUCAIBox/UniSRec) as our baseline for cross-domain recommendation. For setting up UniSRec, please refer to the [UniSRec](https://github.com/RUCAIBox/UniSRec) repo for detailed instructions on installing the necessary dependencies.
 
 Additionally, please download the processed pre-trained, downstream datasets and the pre-trained model from [Google Drive](https://drive.google.com/drive/folders/1mNreuS5l0oa8tDmCtQfQKDv8u7cut4xV?usp=sharing). After unzipping, move `pretrain/` and `downstream/` to `dataset/`, and move `UniSRec-xx-xx-xx.pth` to `saved/`.
 
@@ -102,7 +99,7 @@ Once the model has been pretrained, proceed to finetune it on the target dataset
 
 For example, we finetune and test the model on the bundle dataset.
 ```
-python tune.py -d bundle -p UniSRec-mg-xx-xx.pth -train_stage=inductive_ft -cand_seed xx
+python test.py -d bundle -p UniSRec-mg-xx-xx.pth -train_stage=inductive_ft -cand_seed xx
 ```
 For each dataset, the corresponding parameters are located in the `config.py` and the results of the test are saved in `./res/`
 

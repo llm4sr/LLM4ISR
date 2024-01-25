@@ -99,7 +99,7 @@ Once the model has been pretrained, proceed to finetune it on the target dataset
 
 For example, we finetune and test the model on the bundle dataset.
 ```
-python test.py -d bundle -p UniSRec-mg-xx-xx.pth -train_stage=inductive_ft -cand_seed xx
+python test.py -d bundle -p ./saved/UniSRec-mg-xx-xx.pth -train_stage=inductive_ft -cand_seed xx
 ```
 For each dataset, the corresponding parameters are located in the `config.py` and the results of the test are saved in `./res/`
 
